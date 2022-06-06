@@ -1,7 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+/app_node/backend/node_modules
+/app_node/frontend/node_modules
+/app_flask/flask_redis/__pycache__
+/app_flask/frontend_react/node_modules
 /.pnp
 .pnp.js
 
