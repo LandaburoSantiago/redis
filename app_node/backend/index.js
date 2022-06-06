@@ -7,7 +7,7 @@ app.use(cors({
 }));
 const port = 3002
 const redisClient = redis.createClient({
-    url:"redis://db_redis_kylo:6379",
+    url:"redis://app_node_db:6379",
 });
 app.set('port', port)
 

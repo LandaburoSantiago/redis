@@ -2,26 +2,24 @@ version: "3"
 services:
   backend:
     build: ./backend
-    container_name: 'kylo_api_back'
+    container_name: 'app_node_back'
     command: sh -c 'npm install; npm start'
     ports:
       - '3002:3002'
     volumes:
       - ./backend:/backend
-    #volumes:
-    #  - /home/walter/Descargas/react/backend:/backend
     depends_on:
-      - "db-kylo"
+      - "db-app-node"
 
-  db-kylo:
-    container_name: 'db_redis_kylo'
+  db-app-node:
+    container_name: 'app_node_db'
     image: redis
     ports:
       - "6379:6379"
 
-  fronted:
+  frontend:
     build: ./frontend
-    container_name: 'kylo_api_front'
+    container_name: 'app_node_front'
     command: sh -c 'npm install; npm start'
     ports:
       - '3000:3000'
@@ -29,7 +27,6 @@ services:
       - ./frontend:/frontend
     depends_on:
       - "backend"
-    #working_dir: /home/walter/Descargas/react/fronted
     stdin_open: true
     tty: true
     environment:
