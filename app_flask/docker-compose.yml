@@ -1,0 +1,33 @@
+version: "3"
+services:
+  flask_app:
+    build: ./flask_redis
+    container_name: 'app_flask_react_backend'
+    command: sh -c "pip3 install -r requirements.txt ; python3 app.py"
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./flask_redis:/flask_redis
+    links:
+      - 'db:redis'
+  db:
+    image: redis
+    container_name: 'app_flask_react_db'
+    ports:
+      - "6379:6379"
+  frontend_react:
+    build: ./frontend_react
+    container_name: 'app_flask_react_frontend'
+    command: sh -c 'npm install; npm start'
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend_react:/frontend_react
+    depends_on:
+      - "flask_app"
+    stdin_open: true
+    tty: true
+    environment:
+     - NODE_ENV=development
+     - CHOKIDAR_USEPOLLING=true
+
