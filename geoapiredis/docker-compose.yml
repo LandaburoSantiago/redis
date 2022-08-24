@@ -1,0 +1,30 @@
+version: "3"
+services:
+  backend:
+    build: ./api
+    container_name: 'geoapiredis_api'
+    command: sh -c 'npm install; npm start'
+    ports:
+      - '3003:3003'
+    volumes:
+      - ./api:/api
+    depends_on:
+      - "db"
+  db:
+    container_name: 'geoapiredis_db'
+    image: redis
+    ports:
+      - "6379:6379"
+  frontend:
+    build: ./frontend
+    container_name: 'geoapiredis_frontend'
+    command: sh -c 'npm install; npm start'
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend:/frontend
+    depends_on:
+      - "backend"
+    environment:
+     - NODE_ENV=development
+     - CHOKIDAR_USEPOLLING=true

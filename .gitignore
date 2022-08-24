@@ -5,6 +5,8 @@
 /app_node/frontend/node_modules
 /app_flask/flask_redis/__pycache__
 /app_flask/frontend_react/node_modules
+/geoapiredis/api/node_modules
+/geoapiredis/frontend/node_modules
 /.pnp
 .pnp.js
 

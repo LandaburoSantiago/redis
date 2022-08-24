@@ -1,0 +1,51 @@
+.container-navbar{
+    display: flex;
+    color:white;
+}
+.container-navbar .container-item-navbar{
+    margin:0 10px;
+}
+
+.container-navbar .container-item-navbar button,span{
+    height: 100%;
+    border-radius: 10pxx;
+    font-size: 3rem;
+    color: white;
+}
+
+.container-navbar .container-item-navbar button:hover{
+
+    background-color: gray;
+}
+
+.navbar-top{
+    margin:0 auto;
+}
+.navbar-top button{
+    font-size: 2rem!important;
+    padding: 10px;
+}
+
+.navbar-center{
+    margin:auto auto;
+}
+.navbar-center button{
+    padding: 10px;
+}
+
+@keyframes goTopCenter {
+    from{
+        margin:auto auto;
+    }
+    to{
+        margin:0 auto;
+    }
+}
+@keyframes goCenterCenter {
+    from{
+        margin:0 auto;
+    }
+    to{
+        margin:auto auto;
+    }
+}
